@@ -43,9 +43,6 @@ class BoxProduct extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
         GridView.builder(
           physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -65,7 +62,7 @@ class BoxProduct extends StatelessWidget {
                     blurRadius: 3,
                   )
                 ]),
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.only(left: 10, right: 10),
             padding: EdgeInsets.only(left: 10, right: 10),
             child: Column(children: [
               SizedBox(
@@ -73,7 +70,7 @@ class BoxProduct extends StatelessWidget {
               ),
               Image.asset("assets/asus1.jpg"),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +91,7 @@ class BoxProduct extends StatelessWidget {
                       Text(
                         "\$5,99",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

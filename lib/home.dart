@@ -15,7 +15,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("Desklyn"),
+          title: Text(
+            "Desklyn",
+            style: TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 15),
@@ -28,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   badgeStyle: badges.BadgeStyle(elevation: 2),
                   position: badges.BadgePosition.topEnd(),
-                  child: Icon(Icons.favorite),
+                  child: Icon(Icons.favorite, color: Colors.white),
                 ),
               ),
             )
