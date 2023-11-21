@@ -1,4 +1,6 @@
 import 'package:catalogue_app/components/product_home.dart';
+import 'package:catalogue_app/screens/compare_page.dart';
+import 'package:catalogue_app/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -42,9 +44,6 @@ class _HomePageState extends State<HomePage> {
           ]),
       body: ListView(
         children: [
-          SizedBox(
-            height: 30,
-          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -113,7 +112,10 @@ class _HomePageState extends State<HomePage> {
               itemBox: 2,
               pict: "",
               nameProduct: "",
-              price: "")
+              price: ""),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );

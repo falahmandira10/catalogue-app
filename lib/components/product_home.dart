@@ -1,4 +1,4 @@
-import 'package:catalogue_app/search_page.dart';
+import 'package:catalogue_app/screens/search_page.dart';
 import 'package:flutter/material.dart';
 
 class BoxProduct extends StatelessWidget {
