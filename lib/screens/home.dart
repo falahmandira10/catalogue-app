@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {},
                   badgeContent: Text(
                     "10",
-                    style: TextStyle(fontSize: 10),
+                    style: TextStyle(fontSize: 10, color: Colors.white),
                   ),
                   badgeStyle: badges.BadgeStyle(elevation: 2),
                   position: badges.BadgePosition.topEnd(),
