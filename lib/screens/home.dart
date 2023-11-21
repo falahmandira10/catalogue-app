@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BoxProduct(
               titleSection: "CPU",
-              itemBox: 2,
+              itemBox: 5,
               pict: "",
               nameProduct: "",
               price: ""),
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BoxProduct(
               titleSection: "GPU",
-              itemBox: 2,
+              itemBox: 5,
               pict: "",
               nameProduct: "",
               price: ""),
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BoxProduct(
               titleSection: "CPU",
-              itemBox: 2,
+              itemBox: 5,
               pict: "",
               nameProduct: "",
               price: ""),
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BoxProduct(
               titleSection: "GPU",
-              itemBox: 2,
+              itemBox: 5,
               pict: "",
               nameProduct: "",
               price: ""),

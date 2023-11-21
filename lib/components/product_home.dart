@@ -43,67 +43,57 @@ class BoxProduct extends StatelessWidget {
             ],
           ),
         ),
-        GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 4 / 5,
-            crossAxisCount: 2,
-          ),
-          itemCount: itemBox,
-          shrinkWrap: true,
-          itemBuilder: (context, index) => Container(
-            decoration: BoxDecoration(
+        Container(
+          height: 220,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: itemBox,
+            itemBuilder: (context, index) => Container(
+              width: 170,
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              decoration: BoxDecoration(
                 color: Colors.blueGrey[100],
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    spreadRadius: 1,
-                    offset: Offset(1, 2),
-                    blurRadius: 3,
-                  )
-                ]),
-            margin: EdgeInsets.only(left: 10, right: 10),
-            padding: EdgeInsets.only(left: 10, right: 10),
-            child: Column(children: [
-              SizedBox(
-                height: 30,
               ),
-              Image.asset("assets/asus1.jpg"),
-              SizedBox(
-                height: 10,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
+              child: Column(children: [
+                Container(
+                  height: 120,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image(
+                      image: AssetImage("assets/asus1.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
                     "Asus ROG Ally",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "\$5,99",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp5,999,999,99",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.favorite_border_outlined),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ]),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.favorite_border_outlined),
+                    )
+                  ],
+                ),
+              ]),
+            ),
           ),
         ),
       ],
