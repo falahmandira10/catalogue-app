@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:catalogue_app/components/product_home.dart';
 import 'package:catalogue_app/screens/compare_page.dart';
 import 'package:catalogue_app/screens/profile_page.dart';
@@ -44,34 +45,39 @@ class _HomePageState extends State<HomePage> {
           ]),
       body: ListView(
         children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (int i = 1; i < 4; i++)
-                  Image.asset(
-                    "assets/asus$i.jpg",
-                    height: 200,
-                    fit: BoxFit.cover,
-                  )
-              ],
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 200,
+              viewportFraction: 1,
+              aspectRatio: 18 / 9,
+              initialPage: 0,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(seconds: 2),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              // enlargeCenterPage: true,
+              // enlargeFactor: 0.5,
+              scrollDirection: Axis.horizontal,
             ),
+            items: [1, 2, 3, 4].map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                      width: MediaQuery.of(context).size.width,
+                      // decoration: BoxDecoration(color: Colors.amber),
+                      child: Image.asset(
+                        "assets/asus$i.jpg",
+                        fit: BoxFit.cover,
+                      ));
+                },
+              );
+            }).toList(),
           ),
           SizedBox(
             height: 30,
           ),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "Intel Processors",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
           BoxProduct(
-              titleSection: "CPU",
+              titleSection: "Intel Processors",
               itemBox: 5,
               pict: "",
               nameProduct: "",
@@ -80,35 +86,7 @@ class _HomePageState extends State<HomePage> {
             height: 10,
           ),
           BoxProduct(
-              titleSection: "GPU",
-              itemBox: 5,
-              pict: "",
-              nameProduct: "",
-              price: ""),
-          SizedBox(
-            height: 30,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "AMD Processors",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          BoxProduct(
-              titleSection: "CPU",
-              itemBox: 5,
-              pict: "",
-              nameProduct: "",
-              price: ""),
-          SizedBox(
-            height: 10,
-          ),
-          BoxProduct(
-              titleSection: "GPU",
+              titleSection: "AMD Processors",
               itemBox: 5,
               pict: "",
               nameProduct: "",

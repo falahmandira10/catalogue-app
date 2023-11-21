@@ -30,16 +30,20 @@ class BoxProduct extends StatelessWidget {
               Text(
                 titleSection!,
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SearchPage()));
-                  },
-                  icon: Icon(Icons.double_arrow_rounded))
+              TextButton(
+                child: Text(
+                  "Show All",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SearchPage()));
+                },
+              )
             ],
           ),
         ),
