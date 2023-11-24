@@ -47,84 +47,92 @@ class BoxProduct extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 5,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                if (type) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ProductDetail(productIndex: index + 15),
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Card(
+                color: Color(0xFFFFFFFFF),
+                surfaceTintColor: Color(0xFFFFFFFFF),
+                child: GestureDetector(
+                  onTap: () {
+                    if (type) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ProductDetail(productIndex: index + 15),
+                        ),
+                      );
+                      return;
+                    }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetail(productIndex: index),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 170,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFFFFFFF),
+                      borderRadius: BorderRadius.circular(10),
+                      // border: Border.all(color: Colors.black12, width: 1),
                     ),
-                  );
-                  return;
-                }
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductDetail(productIndex: index),
-                  ),
-                );
-              },
-              child: Container(
-                width: 170,
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
-                  color: Color(0xFFFFFFFFF),
-                  borderRadius: BorderRadius.circular(10),
-                  // border: Border.all(color: Colors.black12, width: 1),
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 120,
-                        width: double.maxFinite,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image(
-                            image: AssetImage(
-                              type
-                                  ? intelProduct[index].image
-                                  : amdProduct[index].image,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 120,
+                            width: double.maxFinite,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image(
+                                image: AssetImage(
+                                  type
+                                      ? intelProduct[index].image
+                                      : amdProduct[index].image,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            fit: BoxFit.cover,
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          type
-                              ? intelProduct[index].name
-                              : amdProduct[index].name,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                          SizedBox(
+                            height: 15,
                           ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          type
-                              ? intelProduct[index].price
-                              : amdProduct[index].price,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              type
+                                  ? intelProduct[index].name
+                                  : amdProduct[index].name,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ]),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              type
+                                  ? intelProduct[index].price
+                                  : amdProduct[index].price,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ]),
+                  ),
+                ),
               ),
             ),
           ),
