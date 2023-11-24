@@ -48,7 +48,7 @@ class BoxProduct extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 5,
             itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: Card(
                 color: Color(0xFFFFFFFFF),
                 surfaceTintColor: Color(0xFFFFFFFFF),
