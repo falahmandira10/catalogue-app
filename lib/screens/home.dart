@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
@@ -59,15 +60,15 @@ class _HomePageState extends State<HomePage> {
               // enlargeFactor: 0.5,
               scrollDirection: Axis.horizontal,
             ),
-            items: [1, 2, 3, 4].map((i) {
+            items: [1, 2, 3].map((i) {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
                       width: MediaQuery.of(context).size.width,
                       // decoration: BoxDecoration(color: Colors.amber),
                       child: Image.asset(
-                        "assets/asus$i.jpg",
-                        fit: BoxFit.cover,
+                        "assets/slider$i.png",
+                        fit: BoxFit.fill,
                       ));
                 },
               );
@@ -77,20 +78,16 @@ class _HomePageState extends State<HomePage> {
             height: 30,
           ),
           BoxProduct(
-              titleSection: "Intel Processors",
-              itemBox: 5,
-              pict: "",
-              nameProduct: "",
-              price: ""),
+            titleSection: "Intel Processors",
+            type: true,
+          ),
           SizedBox(
             height: 10,
           ),
           BoxProduct(
-              titleSection: "AMD Processors",
-              itemBox: 5,
-              pict: "",
-              nameProduct: "",
-              price: ""),
+            titleSection: "AMD Processors",
+            type: false,
+          ),
           SizedBox(
             height: 20,
           ),

@@ -1,21 +1,14 @@
 import 'package:catalogue_app/screens/search_page.dart';
 import 'package:flutter/material.dart';
+import 'package:catalogue_app/data/products.dart';
+import 'package:catalogue_app/screens/product_detail.dart';
 
 class BoxProduct extends StatelessWidget {
-  final int? itemBox;
-  final String? titleSection;
-  final String? pict;
-  final String? nameProduct;
-  final String? price;
-
-  const BoxProduct({
-    super.key,
-    required this.titleSection,
-    required this.itemBox,
-    required this.pict,
-    required this.nameProduct,
-    required this.price,
-  });
+  List<ProductCardInfo> amdProduct = ProductCardInfo.getProductAMD();
+  List<ProductCardInfo> intelProduct = ProductCardInfo.getProductIntel();
+  final String titleSection;
+  final bool type;
+  BoxProduct({super.key, required this.titleSection, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +21,18 @@ class BoxProduct extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                titleSection!,
+                titleSection,
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
+                overflow: TextOverflow.ellipsis,
               ),
               TextButton(
                 child: Text(
                   "Show All",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black54),
                 ),
                 onPressed: () {
                   Navigator.push(context,
@@ -51,52 +46,86 @@ class BoxProduct extends StatelessWidget {
           height: 220,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: itemBox,
-            itemBuilder: (context, index) => Container(
-              width: 170,
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey[100],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(children: [
-                Container(
-                  height: 120,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image(
-                      image: AssetImage("assets/asus1.jpg"),
-                      fit: BoxFit.cover,
+            itemCount: 5,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                if (type) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ProductDetail(productIndex: index + 15),
                     ),
+                  );
+                  return;
+                }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetail(productIndex: index),
                   ),
+                );
+              },
+              child: Container(
+                width: 170,
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFFF),
+                  borderRadius: BorderRadius.circular(10),
+                  // border: Border.all(color: Colors.black12, width: 1),
                 ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "Asus ROG Ally",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Rp5,999,999,99",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 120,
+                        width: double.maxFinite,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image(
+                            image: AssetImage(
+                              type
+                                  ? intelProduct[index].image
+                                  : amdProduct[index].image,
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border_outlined),
-                    )
-                  ],
-                ),
-              ]),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          type
+                              ? intelProduct[index].name
+                              : amdProduct[index].name,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          type
+                              ? intelProduct[index].price
+                              : amdProduct[index].price,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ]),
+              ),
             ),
           ),
         ),

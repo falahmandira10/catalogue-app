@@ -1,13 +1,103 @@
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Profile Page"),
+      appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text(
+            "Profile",
+            style: TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Center(
+                  child: IconButton(
+                icon: Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                ),
+                onPressed: () {},
+              )),
+            )
+          ]),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: ListView(
+          children: [
+            Image(
+              image: AssetImage("assets/desklyn.png"),
+              height: 200,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.person_pin),
+                title: Text("Username"),
+                subtitle: Text("User1"),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.phone),
+                title: Text("Phone Number"),
+                subtitle: Text("083876441320"),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.lock),
+                title: Text("Password"),
+                subtitle: Text("*******"),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.red),
+                fixedSize: MaterialStatePropertyAll(Size(double.maxFinite, 50)),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Log Out",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
       ),
     );
   }
