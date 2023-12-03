@@ -5,8 +5,8 @@ import 'package:catalogue_app/screens/product_detail.dart';
 import 'package:catalogue_app/screens/all_product_page.dart';
 
 class BoxProduct extends StatelessWidget {
-  List<ProductCardInfo> amdProduct = ProductCardInfo.getProductAMD();
-  List<ProductCardInfo> intelProduct = ProductCardInfo.getProductIntel();
+  final List<ProductCardInfo> amdProduct = ProductCardInfo.getProductAMD();
+  final List<ProductCardInfo> intelProduct = ProductCardInfo.getProductIntel();
   final String titleSection;
   final bool type;
   BoxProduct({super.key, required this.titleSection, required this.type});

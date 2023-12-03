@@ -15,7 +15,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffE8D5EB),
+      backgroundColor: Color(0xffF6F3EA),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(35.0),
@@ -117,19 +117,18 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const MainPage()),
+                          MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffFEFAFF)),
+                          backgroundColor: Color(0xffA29B30)),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "Sign Up",
                           style: TextStyle(
                               fontSize: 20,
-                              color: Color.fromARGB(255, 149, 116, 155),
+                              color: Color(0xffF6F3EA),
                               fontWeight: FontWeight.bold),
                         ),
                       )),
@@ -151,7 +150,7 @@ class _SignUpState extends State<SignUp> {
                       child: Text(
                         "Sign In",
                         style: TextStyle(
-                            color: Color.fromARGB(255, 135, 88, 143),
+                            color: Color(0xffA29B30),
                             fontWeight: FontWeight.bold),
                       ),
                     )
