@@ -1,3 +1,4 @@
+import 'package:catalogue_app/screens/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:catalogue_app/screens/signup_page.dart';
 
@@ -75,7 +76,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Center(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainPage()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xffFEFAFF)),
                       child: Padding(

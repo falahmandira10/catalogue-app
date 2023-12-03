@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:catalogue_app/components/product_home.dart';
 import 'package:catalogue_app/screens/compare_page.dart';
-import 'package:catalogue_app/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:catalogue_app/data/products.dart';
 import 'package:catalogue_app/screens/product_detail.dart';
 
-class FavoritePage extends StatefulWidget {
-  FavoritePage({Key? key}) : super(key: key);
+class AllProductPage extends StatefulWidget {
+  AllProductPage({Key? key}) : super(key: key);
 
   @override
-  _FavoritePageState createState() => _FavoritePageState();
+  _AllProductPageState createState() => _AllProductPageState();
 }
 
-class _FavoritePageState extends State<FavoritePage> {
+class _AllProductPageState extends State<AllProductPage> {
   List<ProductCardInfo> allProducts = ProductCardInfo.getProduct();
 
   List<ProductCardInfo> foundProduct = [];
@@ -58,7 +58,10 @@ class _FavoritePageState extends State<FavoritePage> {
         leading: buttonArrow(context),
         title: Text(
           "All Products",
-          style: TextStyle(color: Color(0xffA29B30)),
+          style: TextStyle(
+            color: Color(0xffA29B30),
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -104,52 +107,52 @@ class _FavoritePageState extends State<FavoritePage> {
         controller: _scrollController,
         child: Column(
           children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildTab("Popular", 0),
-                  buildTab("Latest", 1),
-                  buildTab("Top Sales", 2),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        // Sorting berdasarkan harga
-                        isAscending = !isAscending;
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(129, 162, 154, 48),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 6),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Price",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 133, 126, 35),
-                              ),
-                            ),
-                            Icon(
-                              isAscending
-                                  ? Icons.arrow_upward_sharp
-                                  : Icons.arrow_downward_sharp,
-                              size: 18,
-                              color: Color.fromARGB(255, 133, 126, 35),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding:
+            //       const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       buildTab("Popular", 0),
+            //       buildTab("Latest", 1),
+            //       buildTab("Top Sales", 2),
+            //       InkWell(
+            //         onTap: () {
+            //           setState(() {
+            //             // Sorting berdasarkan harga
+            //             isAscending = !isAscending;
+            //           });
+            //         },
+            //         child: Container(
+            //           decoration: BoxDecoration(
+            //               color: Color.fromARGB(129, 162, 154, 48),
+            //               borderRadius: BorderRadius.circular(8)),
+            //           child: Padding(
+            //             padding: const EdgeInsets.symmetric(
+            //                 horizontal: 14, vertical: 6),
+            //             child: Row(
+            //               children: [
+            //                 Text(
+            //                   "Price",
+            //                   style: TextStyle(
+            //                     color: Color.fromARGB(255, 133, 126, 35),
+            //                   ),
+            //                 ),
+            //                 Icon(
+            //                   isAscending
+            //                       ? Icons.arrow_upward_sharp
+            //                       : Icons.arrow_downward_sharp,
+            //                   size: 18,
+            //                   color: Color.fromARGB(255, 133, 126, 35),
+            //                 )
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: GridView.builder(
@@ -255,7 +258,10 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ),
             child: Image.asset(
               productInfo.image,
               height: 150,

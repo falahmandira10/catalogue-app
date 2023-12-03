@@ -1,5 +1,6 @@
+import 'package:catalogue_app/screens/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:flutter/services.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -83,7 +84,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 backgroundColor: MaterialStatePropertyAll(Colors.red),
                 fixedSize: MaterialStatePropertyAll(Size(double.maxFinite, 50)),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    (route) => false);
+              },
               child: Text(
                 "Log Out",
                 style: TextStyle(

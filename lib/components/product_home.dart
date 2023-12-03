@@ -2,6 +2,7 @@ import 'package:catalogue_app/screens/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:catalogue_app/data/products.dart';
 import 'package:catalogue_app/screens/product_detail.dart';
+import 'package:catalogue_app/screens/all_product_page.dart';
 
 class BoxProduct extends StatelessWidget {
   List<ProductCardInfo> amdProduct = ProductCardInfo.getProductAMD();
@@ -35,8 +36,10 @@ class BoxProduct extends StatelessWidget {
                       fontWeight: FontWeight.bold, color: Colors.black54),
                 ),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AllProductPage()));
                 },
               )
             ],

@@ -1,5 +1,6 @@
+import 'package:catalogue_app/screens/navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:catalogue_app/screens/favorites.dart';
+import 'package:catalogue_app/screens/all_product_page.dart';
 import 'package:catalogue_app/screens/login_page.dart';
 
 class SignUp extends StatefulWidget {
@@ -117,7 +118,7 @@ class _SignUpState extends State<SignUp> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FavoritePage()),
+                              builder: (context) => const MainPage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
