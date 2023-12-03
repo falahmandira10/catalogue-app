@@ -27,6 +27,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: MainPage());
+        home: FavoritePage());
   }
 }

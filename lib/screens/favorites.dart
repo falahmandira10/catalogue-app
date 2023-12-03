@@ -46,6 +46,8 @@ class _FavoritePageState extends State<FavoritePage> {
     foundProduct = allProducts;
   }
 
+  FocusNode myFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     _getInitialInfo();
@@ -55,24 +57,42 @@ class _FavoritePageState extends State<FavoritePage> {
         backgroundColor: Color(0xffF8F5EC),
         leading: buttonArrow(context),
         title: Text(
-          "Favorites",
+          "All Products",
           style: TextStyle(color: Color(0xffA29B30)),
         ),
         centerTitle: true,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Container(
               height: 50,
               child: TextFormField(
+                focusNode: myFocus,
                 onChanged: (value) => _runFilter(value),
+                onTap: () {
+                  myFocus.addListener(() {
+                    setState(() {});
+                  });
+                },
                 decoration: InputDecoration(
+                  hoverColor: Color(0xffA29B30),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  hintText: "Search",
-                  suffixIcon: Icon(Icons.search_rounded),
+                  labelText: "Search",
+                  labelStyle: TextStyle(
+                      color:
+                          myFocus.hasFocus ? Color(0xffA29B30) : Colors.black),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xffA29B30),
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  suffixIcon: Icon(Icons.search_rounded,
+                      color:
+                          myFocus.hasFocus ? Color(0xffA29B30) : Colors.black),
                 ),
               ),
             ),
@@ -238,7 +258,7 @@ class ProductCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             child: Image.asset(
               productInfo.image,
-              height: 190,
+              height: 150,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -263,8 +283,9 @@ class ProductCard extends StatelessWidget {
                     fontSize: 16,
                   ),
                   textAlign: TextAlign.left,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Icon(
@@ -275,12 +296,15 @@ class ProductCard extends StatelessWidget {
                     SizedBox(
                       width: 3,
                     ),
-                    Text(
-                      productInfo.store,
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 133, 126, 35),
-                          fontSize: 11,
-                          height: 1),
+                    Expanded(
+                      child: Text(
+                        productInfo.store,
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 133, 126, 35),
+                            fontSize: 11,
+                            height: 1),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 ),
@@ -294,12 +318,15 @@ class ProductCard extends StatelessWidget {
                     SizedBox(
                       width: 3,
                     ),
-                    Text(
-                      productInfo.location,
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 133, 126, 35),
-                          fontSize: 11,
-                          height: 1),
+                    Expanded(
+                      child: Text(
+                        productInfo.location,
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 133, 126, 35),
+                            fontSize: 11,
+                            height: 1),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 ),
