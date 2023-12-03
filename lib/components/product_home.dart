@@ -26,6 +26,7 @@ class BoxProduct extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
+                  color: Color(0xffA29B30),
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -53,8 +54,8 @@ class BoxProduct extends StatelessWidget {
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: Card(
-                color: Color(0xFFFFFFFFF),
-                surfaceTintColor: Color(0xFFFFFFFFF),
+                color: Color(0xffF8F5EC),
+                surfaceTintColor: Color(0xffF8F5EC),
                 child: GestureDetector(
                   onTap: () {
                     if (type) {
@@ -77,10 +78,9 @@ class BoxProduct extends StatelessWidget {
                   },
                   child: Container(
                     width: 170,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xffF8F5EC),
+                      borderRadius: BorderRadius.circular(15),
                       // border: Border.all(color: Colors.black12, width: 1),
                     ),
                     child: Column(
@@ -90,7 +90,10 @@ class BoxProduct extends StatelessWidget {
                             height: 120,
                             width: double.maxFinite,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                              ),
                               child: Image(
                                 image: AssetImage(
                                   type

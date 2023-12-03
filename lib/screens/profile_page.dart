@@ -13,6 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffF8F5EC),
       appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
@@ -50,6 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 10,
             ),
             Card(
+              color: Color(0xffF8F5EC),
               child: ListTile(
                 leading: Icon(Icons.person_pin),
                 title: Text("Username"),
@@ -60,6 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 10,
             ),
             Card(
+              color: Color(0xffF8F5EC),
               child: ListTile(
                 leading: Icon(Icons.phone),
                 title: Text("Phone Number"),
@@ -70,6 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 10,
             ),
             Card(
+              color: Color(0xffF8F5EC),
               child: ListTile(
                 leading: Icon(Icons.lock),
                 title: Text("Password"),
