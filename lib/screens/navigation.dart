@@ -1,8 +1,7 @@
-import 'package:catalogue_app/screens/compare_page.dart';
+import 'package:catalogue_app/screens/chatApp.dart';
 import 'package:catalogue_app/screens/home.dart';
 import 'package:catalogue_app/screens/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'package:catalogue_app/screens/chat1.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -15,7 +14,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    ChatScreen(),
+    ChatApp(),
     ProfilePage(),
   ];
   void _onItemTapped(int index) {

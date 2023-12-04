@@ -42,7 +42,9 @@ class ChatScreenState extends State<ChatScreen> {
             children: [
               IconButton(
                 icon: Icon(Icons.arrow_back),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
               CircleAvatar(
                 radius: 24.0,

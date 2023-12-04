@@ -1,8 +1,9 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:catalogue_app/components/product_home.dart';
-import 'package:catalogue_app/screens/compare_page.dart';
+import 'package:catalogue_app/screens/chatApp.dart';
+import 'package:catalogue_app/screens/favorites.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,16 +31,36 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.only(right: 15),
               child: Center(
-                child: badges.Badge(
-                  onTap: () {},
-                  badgeContent: Text(
-                    "10",
-                    style: TextStyle(fontSize: 10, color: Colors.white),
-                  ),
-                  badgeStyle: badges.BadgeStyle(elevation: 2),
-                  position: badges.BadgePosition.topEnd(),
-                  child: Icon(Icons.favorite, color: Colors.white),
-                ),
+                child: Row(
+                  children: [
+                    badges.Badge(
+                      onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FavPage()));
+                      },
+                      badgeContent: Text(
+                        "10",
+                        style: TextStyle(fontSize: 10, color: Colors.white),
+                      ),
+                      badgeStyle: badges.BadgeStyle(elevation: 2),
+                      position: badges.BadgePosition.topEnd(),
+                      child: Icon(Icons.favorite, color: Colors.white),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatApp()));
+                        },
+                        child: Icon(Icons.message, color: Colors.white,)),)
+                    
+                  ],
+                )
               ),
             )
           ]),

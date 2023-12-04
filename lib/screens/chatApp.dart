@@ -1,13 +1,15 @@
+import 'package:catalogue_app/screens/chat1.dart';
+import 'package:catalogue_app/screens/home.dart';
 import 'package:flutter/material.dart';
 
-class chatApp extends StatefulWidget {
-  const chatApp({Key? key}) : super(key: key);
+class ChatApp extends StatefulWidget {
+  const ChatApp({Key? key}) : super(key: key);
 
   @override
-  _chatAppState createState() => _chatAppState();
+  _ChatAppState createState() => _ChatAppState();
 }
 
-class _chatAppState extends State<chatApp> {
+class _ChatAppState extends State<ChatApp> {
   bool isSearchVisible = false;
 
   @override
@@ -15,8 +17,18 @@ class _chatAppState extends State<chatApp> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffF8F5EC),
-        leading: Icon(
-          Icons.arrow_back_outlined,
+        leading: InkWell(
+          onTap: (){
+            Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomePage()),
+                        );
+          },
+          child: Icon(
+            Icons.arrow_back_outlined,
+            
+          ),
         ),
         title: Text("Chat"),
         bottom: isSearchVisible
@@ -50,206 +62,215 @@ class _chatAppState extends State<chatApp> {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal:12.0),
-          child: ListView(
-            children: [
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+          child: InkWell(
+            onTap: (){
+              Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ChatScreen()),
+                        );
+            },
+            child: ListView(
+              children: [
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-              
-              ListTile(
-                contentPadding: EdgeInsets.all(8.0),
-                title: Text("Ninja Detect"),
-                subtitle: Text(
-                  "selamat datang di toko kami.kalau ada..",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Divider(
+                  color: Colors.black12,
                 ),
-                leading: CircleAvatar(),
-                trailing: Text("13:00 PM"),
-              ),
-              Divider(
-                color: Colors.black12,
-              ),
-            ],
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+                
+                ListTile(
+                  contentPadding: EdgeInsets.all(8.0),
+                  title: Text("Ninja Detect"),
+                  subtitle: Text(
+                    "selamat datang di toko kami.kalau ada..",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  leading: CircleAvatar(),
+                  trailing: Text("13:00 PM"),
+                ),
+                Divider(
+                  color: Colors.black12,
+                ),
+              ],
+            ),
           ),
         ),
       ),
